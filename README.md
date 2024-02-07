@@ -1,1 +1,2 @@
 # JavaForQAs
+Contains small tasks
