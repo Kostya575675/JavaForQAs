@@ -67,7 +67,7 @@ public class JavaBasicsTasks {
             System.out.println("a - convert meters to inch, b - compare two numbers, c - find square cube and fourth power");
             System.out.println("d - find the sum of numbers, e - determine student's grade, f - exit");
             String inputTxt = sc.nextLine().trim();
-            int inputInt = 0;
+            int inputInt;
             switch (inputTxt.toLowerCase()) {
                 case "a":
                     inputInt = getIntegerFromInputConsole();
@@ -85,16 +85,16 @@ public class JavaBasicsTasks {
                     findSquareCubeAndFourthPower(inputInt);
                     break;
                 case "d":
-                    String text = "";
+                    StringBuilder text = new StringBuilder();
                     System.out.println("Input only numbers or not number to exit from input mode");
                     while (true) {
                         System.out.println("Input desired number");
                         inputTxt = sc.nextLine().trim();
                         if (!inputTxt.matches("[0-9]+")) break;
-                        text += text.isEmpty() ? inputTxt : " " + inputTxt;
+                        text.append((text.length() == 0) ? inputTxt : " " + inputTxt);
                     }
-                    if (!text.isEmpty()) {
-                        String[] inputArr = text.split(" ");
+                    if (text.length() > 0) {
+                        String[] inputArr = text.toString().split(" ");
                         int[] numbers = new int[inputArr.length];
                         for (int i = 0; i < inputArr.length; i++) {
                             numbers[i] = Integer.parseInt(inputArr[i]);
